@@ -6,6 +6,6 @@ for (let num = 1; num <= 20; num++) {
   } else if (num % 5 === 0) {
     console.log("Buzz");
   } else {
-    console.log(`${num}`);
+    console.log(num.toString());
   }
 }
