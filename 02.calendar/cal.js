@@ -5,6 +5,7 @@ import minimist from "minimist";
 // ターミナルからの入力をminimistで取得
 const inputTime = minimist(process.argv.slice(2));
 const inputMonth = inputTime["m"];
+const inputYear = inputTime["y"];
 
 // 入力が整数かどうか,最小、最大値の範囲かを判定する
 function validateInteger(value, min, max) {
@@ -20,3 +21,4 @@ function validateInteger(value, min, max) {
 }
 
 console.log(validateInteger(inputMonth, 1, 12));
+console.log(validateInteger(inputYear, 1970, 2100));
