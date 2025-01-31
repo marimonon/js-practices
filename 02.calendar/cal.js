@@ -34,5 +34,10 @@ const sellectYear = inputYear
   ? validateInteger(inputYear, 1970, 2100)
   : date.year;
 
-console.log(sellectMonth);
-console.log(sellectYear);
+// 選択された(もしくは現在の）月の日数を取得
+const sellectDays = DateTime.fromObject({
+  year: sellectYear,
+  month: sellectMonth,
+}).daysInMonth;
+
+console.log(sellectDays);
