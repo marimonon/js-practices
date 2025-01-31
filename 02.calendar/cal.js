@@ -47,5 +47,9 @@ const sellectFirstDay = DateTime.fromObject({
   day: 1,
 }).weekday;
 
+// 最初の土曜日の日付を取得
+const firstSaturday = 6 - sellectFirstDay + 1;
+
 console.log(sellectDays);
 console.log(sellectFirstDay);
+console.log(firstSaturday);
