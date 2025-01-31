@@ -50,6 +50,7 @@ const sellectFirstDay = DateTime.fromObject({
 // 最初の土曜日の日付を取得
 const firstSaturday = 6 - sellectFirstDay + 1;
 
-console.log(sellectDays);
-console.log(sellectFirstDay);
-console.log(firstSaturday);
+// 土曜日かどうかを判定
+const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
+
+console.log(isSaturday(sellectFirstDay));
