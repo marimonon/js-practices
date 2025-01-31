@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 import minimist from "minimist";
+import { DateTime } from "luxon";
 
 // ターミナルからの入力をminimistで取得
 const inputTime = minimist(process.argv.slice(2));
@@ -20,15 +21,14 @@ function validateInteger(value, min, max) {
   return value;
 }
 
+// 現在の日付を取得
+const date = DateTime.now();
+
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の月を取得
-const month = inputMonth
-  ? validateInteger(inputMonth, 1, 12)
-  : new Date().getMonth() + 1;
+const month = inputMonth ? validateInteger(inputMonth, 1, 12) : date.month;
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の年を取得
-const year = inputYear
-  ? validateInteger(inputYear, 1970, 2100)
-  : new Date().getFullYear();
+const year = inputYear ? validateInteger(inputYear, 1970, 2100) : date.year;
 
 console.log(month);
 console.log(year);
