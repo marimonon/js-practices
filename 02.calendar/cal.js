@@ -20,5 +20,15 @@ function validateInteger(value, min, max) {
   return value;
 }
 
-console.log(validateInteger(inputMonth, 1, 12));
-console.log(validateInteger(inputYear, 1970, 2100));
+// 入力が存在した時はvalidateを実行し、入力がない時は現在の月を取得
+const month = inputMonth
+  ? validateInteger(inputMonth, 1, 12)
+  : new Date().getMonth() + 1;
+
+// 入力が存在した時はvalidateを実行し、入力がない時は現在の年を取得
+const year = inputYear
+  ? validateInteger(inputYear, 1970, 2100)
+  : new Date().getFullYear();
+
+console.log(month);
+console.log(year);
