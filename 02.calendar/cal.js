@@ -40,4 +40,12 @@ const sellectDays = DateTime.fromObject({
   month: sellectMonth,
 }).daysInMonth;
 
+// 選択された(もしくは現在の）1日目の曜日を取得
+const sellectFirstDay = DateTime.fromObject({
+  year: sellectYear,
+  month: sellectMonth,
+  day: 1,
+}).weekday;
+
 console.log(sellectDays);
+console.log(sellectFirstDay);
