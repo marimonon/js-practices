@@ -25,10 +25,14 @@ function validateInteger(value, min, max) {
 const date = DateTime.now();
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の月を取得
-const month = inputMonth ? validateInteger(inputMonth, 1, 12) : date.month;
+const sellectMonth = inputMonth
+  ? validateInteger(inputMonth, 1, 12)
+  : date.month;
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の年を取得
-const year = inputYear ? validateInteger(inputYear, 1970, 2100) : date.year;
+const sellectYear = inputYear
+  ? validateInteger(inputYear, 1970, 2100)
+  : date.year;
 
-console.log(month);
-console.log(year);
+console.log(sellectMonth);
+console.log(sellectYear);
