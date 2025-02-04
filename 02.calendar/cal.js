@@ -63,3 +63,12 @@ process.stdout.write("日 月 火 水 木 金 土\n");
 // 最初のスペース
 process.stdout.write(" ".repeat(sellectFirstDay * 3));
 
+// 日付の部分
+for (let i = 1; i <= sellectDays; i++) {
+  // 1桁の時はスペースを追加
+  process.stdout.write(i <= 9 ? ` ${i} ` : `${i} `);
+  // 土曜日で改行
+  if (isSaturday(i)) {
+    process.stdout.write("\n");
+  }
+}
