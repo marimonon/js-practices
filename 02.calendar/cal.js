@@ -54,3 +54,10 @@ const firstSaturday = 6 - sellectFirstDay + 1;
 const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
 
 console.log(isSaturday(sellectFirstDay));
+// カレンダーの出力
+// 年月の部分
+process.stdout.write(`      ${sellectMonth}月 ${sellectYear}年\n`);
+
+// 曜日の部分
+process.stdout.write("日 月 火 水 木 金 土\n");
+
