@@ -53,6 +53,9 @@ const firstSaturday = 6 - sellectFirstDay + 1;
 // 土曜日かどうかを判定
 const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
 
+// 1桁の日付にスペースを追加
+const twoDigits = (day) => day.toString().padStart(2, " ");
+
 // カレンダーの出力
 // 年月の部分
 process.stdout.write(`      ${sellectMonth}月 ${sellectYear}年\n`);
@@ -65,8 +68,8 @@ process.stdout.write(" ".repeat(sellectFirstDay * 3));
 
 // 日付の部分
 for (let i = 1; i <= sellectDays; i++) {
-  // 1桁の時はスペースを追加
-  process.stdout.write(i <= 9 ? ` ${i} ` : `${i} `);
+  // 2桁に変換後スペースを追加
+  process.stdout.write(`${twoDigits(i)} `);
   // 土曜日で改行
   if (isSaturday(i)) {
     process.stdout.write("\n");
