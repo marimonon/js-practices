@@ -75,3 +75,6 @@ for (let i = 1; i <= sellectDays; i++) {
     process.stdout.write("\n");
   }
 }
+
+// 最後改行する
+process.stdout.write("\n");
