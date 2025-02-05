@@ -25,30 +25,30 @@ function validateInteger(value, min, max) {
 const date = DateTime.now();
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の月を取得
-const sellectMonth = inputMonth
+const selectMonth = inputMonth
   ? validateInteger(inputMonth, 1, 12)
   : date.month;
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の年を取得
-const sellectYear = inputYear
+const selectYear = inputYear
   ? validateInteger(inputYear, 1970, 2100)
   : date.year;
 
 // 選択された(もしくは現在の）月の日数を取得
-const sellectDays = DateTime.fromObject({
-  year: sellectYear,
-  month: sellectMonth,
+const selectDays = DateTime.fromObject({
+  year: selectYear,
+  month: selectMonth,
 }).daysInMonth;
 
 // 選択された(もしくは現在の）1日目の曜日を取得
-const sellectFirstDay = DateTime.fromObject({
-  year: sellectYear,
-  month: sellectMonth,
+const selectFirstDay = DateTime.fromObject({
+  year: selectYear,
+  month: selectMonth,
   day: 1,
 }).weekday;
 
 // 最初の土曜日の日付を取得
-const firstSaturday = 6 - sellectFirstDay + 1;
+const firstSaturday = 6 - selectFirstDay + 1;
 
 // 土曜日かどうかを判定
 const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
@@ -58,16 +58,16 @@ const twoDigits = (day) => day.toString().padStart(2, " ");
 
 // カレンダーの出力
 // 年月の部分
-process.stdout.write(`      ${sellectMonth}月 ${sellectYear}年\n`);
+process.stdout.write(`      ${selectMonth}月 ${selectYear}年\n`);
 
 // 曜日の部分
 process.stdout.write("日 月 火 水 木 金 土\n");
 
 // 最初のスペース
-process.stdout.write(" ".repeat(sellectFirstDay * 3));
+process.stdout.write(" ".repeat(selectFirstDay * 3));
 
 // 日付の部分
-for (let i = 1; i <= sellectDays; i++) {
+for (let i = 1; i <= selectDays; i++) {
   // 2桁に変換後スペースを追加
   process.stdout.write(`${twoDigits(i)} `);
   // 土曜日で改行
