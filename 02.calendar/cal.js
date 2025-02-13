@@ -48,7 +48,7 @@ const selectFirstDay = DateTime.fromObject({
 }).weekday;
 
 // 最初の土曜日の日付を取得
-const firstSaturday = 6 - selectFirstDay + 1;
+const firstSaturday = 7 - (selectFirstDay % 7);
 
 // 土曜日かどうかを判定
 const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
@@ -57,6 +57,7 @@ const isSaturday = (day) => (day - firstSaturday) % 7 === 0;
 const twoDigits = (day) => day.toString().padStart(2, " ");
 
 // カレンダーの出力
+
 // 年月の部分
 process.stdout.write(`      ${selectMonth}月 ${selectYear}年\n`);
 
@@ -64,7 +65,7 @@ process.stdout.write(`      ${selectMonth}月 ${selectYear}年\n`);
 process.stdout.write("日 月 火 水 木 金 土\n");
 
 // 最初のスペース
-process.stdout.write(" ".repeat(selectFirstDay * 3));
+process.stdout.write(" ".repeat((selectFirstDay % 7) * 3));
 
 // 日付の部分
 for (let i = 1; i <= selectDays; i++) {
