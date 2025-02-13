@@ -31,7 +31,7 @@ const selectMonth = inputMonth
 
 // 入力が存在した時はvalidateを実行し、入力がない時は現在の年を取得
 const selectYear = inputYear
-  ? validateInteger(inputYear, 1970, 2100)
+  ? validateInteger(inputYear, 1970, 2100) // 課題の指定どおり、1970〜2100年で動作させる
   : date.year;
 
 // 選択された(もしくは現在の）月の日数を取得
