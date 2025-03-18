@@ -34,18 +34,18 @@ const selectYear = inputYear
   ? validateInteger(inputYear, 1970, 2100) // 課題の指定どおり、1970〜2100年で動作させる
   : date.year;
 
-// 選択された(もしくは現在の）月の日数を取得
-const selectDays = DateTime.fromObject({
-  year: selectYear,
-  month: selectMonth,
-}).daysInMonth;
-
-// 選択された(もしくは現在の）1日目の曜日を取得
-const selectFirstDay = DateTime.fromObject({
+// 選択された(もしくは現在の）1日目の要素を取得
+const firstDateOfMonth = DateTime.fromObject({
   year: selectYear,
   month: selectMonth,
   day: 1,
-}).weekday;
+});
+
+// 選択された(もしくは現在の）月の日数を取得
+const selectDays = firstDateOfMonth.daysInMonth;
+
+// 選択された(もしくは現在の）1日目の曜日を取得
+const selectFirstDay = firstDateOfMonth.weekday;
 
 // 最初の土曜日の日付を取得
 const DAYS_OF_WEEK = 7;
