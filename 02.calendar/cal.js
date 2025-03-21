@@ -47,12 +47,20 @@ const selectDays = firstDateOfMonth.daysInMonth;
 // 選択された(もしくは現在の）1日目の曜日を取得
 const selectFirstDay = firstDateOfMonth.weekday;
 
-// 最初の土曜日の日付を取得
 const DAYS_OF_WEEK = 7;
-const firstSaturday = DAYS_OF_WEEK - (selectFirstDay % DAYS_OF_WEEK);
 
 // 土曜日かどうかを判定
-const isSaturday = (day) => (day - firstSaturday) % DAYS_OF_WEEK === 0;
+const SATURDAY = 6;
+
+const isSaturday = (day) => {
+  const date = DateTime.fromObject({
+    year: selectYear,
+    month: selectMonth,
+    day,
+  });
+
+  return date.weekday === SATURDAY;
+};
 
 // 1桁の日付にスペースを追加
 const twoDigits = (day) => day.toString().padStart(2, " ");
